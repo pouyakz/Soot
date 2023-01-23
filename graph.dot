@@ -1,0 +1,7 @@
+digraph "call-graph" {
+    "<testers.CallGraphs: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<testers.CallGraphs: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<testers.CallGraphs: void func()>"
+    "<testers.CallGraphs: void main(java.lang.String[])>"->"<testers.CallGraphs: void func()>";
+}
