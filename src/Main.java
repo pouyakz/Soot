@@ -58,7 +58,10 @@ public class Main {
         List<String> argsList = new ArrayList<String>(Arrays.asList(args));
         argsList.addAll(Arrays.asList(new String[] { "-w", "-main-class", "testers.CallGraphs", // main-class
                      "testers.CallGraphs", // argument classes
-                     
+                     "testers.Test1", //
+                     "testers.Test2", //
+                     "testers.Test3", //
+
         }));
         String[] args2 = new String[argsList.size()];
         args2 = argsList.toArray(args2);        
@@ -66,10 +69,11 @@ public class Main {
                @Override
                protected void internalTransform(String phaseName, Map options) {
                      CHATransformer.v().transform();
+                     SootClass a = Scene.v().getSootClass("testers.Test1");
                      SootMethod src = Scene.v().getMainClass().getMethodByName("func");
                      CallGraph cg = Scene.v().getCallGraph();
                      
-                     serializeCallGraph(cg, "graph" + DotGraph.DOT_EXTENSION);
+                     serializeCallGraph(cg, "output" + DotGraph.DOT_EXTENSION);
                      System.out.println("serializeCallGraph completed.");
                      
                      Iterator<MethodOrMethodContext> targets = new Targets(cg.edgesOutOf(src));

@@ -1,0 +1,30 @@
+digraph "call-graph" {
+    "<testers.CallGraphs: void main(java.lang.String[])>"
+    "<java.lang.Object: void <clinit>()>"
+    "<testers.CallGraphs: void main(java.lang.String[])>"->"<java.lang.Object: void <clinit>()>";
+    "<testers.CallGraphs: void func()>"
+    "<testers.CallGraphs: void main(java.lang.String[])>"->"<testers.CallGraphs: void func()>";
+    "<testers.CallGraphs: void func()>"->"<java.lang.Object: void <clinit>()>";
+    "<testers.Test1: void <init>()>"
+    "<testers.CallGraphs: void func()>"->"<testers.Test1: void <init>()>";
+    "<testers.Test1: void one()>"
+    "<testers.CallGraphs: void func()>"->"<testers.Test1: void one()>";
+    "<java.lang.Object: void <init>()>"
+    "<testers.Test1: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<testers.Test1: void two()>"
+    "<testers.Test1: void one()>"->"<testers.Test1: void two()>";
+    "<testers.Test1: void two()>"->"<java.lang.Object: void <clinit>()>";
+    "<testers.Test2: void <init>()>"
+    "<testers.Test1: void two()>"->"<testers.Test2: void <init>()>";
+    "<testers.Test2: void three()>"
+    "<testers.Test1: void two()>"->"<testers.Test2: void three()>";
+    "<testers.Test2: void three()>"->"<java.lang.Object: void <clinit>()>";
+    "<testers.Test2: void <init>()>"->"<java.lang.Object: void <init>()>";
+    "<testers.Test3: void <init>()>"
+    "<testers.Test2: void three()>"->"<testers.Test3: void <init>()>";
+    "<testers.Test3: void five()>"
+    "<testers.Test2: void three()>"->"<testers.Test3: void five()>";
+    "<testers.Test2: void four()>"
+    "<testers.Test2: void three()>"->"<testers.Test2: void four()>";
+    "<testers.Test3: void <init>()>"->"<java.lang.Object: void <init>()>";
+}
